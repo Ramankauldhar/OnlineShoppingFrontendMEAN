@@ -1,0 +1,38 @@
+<div class="card-top container-fluid">
+    <div class="d-flex">
+        <div class="item">
+            <a (click)="filter('')"><img src="../../../assets/all.png" alt="Product Image" routerLink="home"></a>
+            <p class="searchText">All Products</p>
+        </div>
+        <div class="item">
+            <a (click)="filter('Jewelry')"><img src="../../../assets/jewelry.png" alt="Jewelry Image"></a>
+            <p class="searchText">Jewelry</p>
+        </div>
+        <div class="item">
+            <a (click)="filter('Cloths')"><img src="../../../assets/cloths.png" alt="Cloths Image"></a>
+            <p class="searchText">Cloths</p>
+        </div>
+        <div class="item">
+            <a (click)="filter('Electronics')"><img src="../../../assets/electronics.png" alt="Electronics Image"></a>
+            <p class="searchText">Electronics</p>
+        </div>
+        <div class="item">
+            <a (click)="filter('Foot wear')"><img src="../../../assets/footWear.png" alt="Foot Wear Image"></a>
+            <p class="searchText">Foot Wear</p>
+        </div>
+    </div>
+</div>
+
+<div class="container1">
+    <div class="row">
+        <h2>All Products</h2>
+        <ng-container *ngFor="let product of filterCategory | filter:searchKey:'title'">
+            <div class="card col-md-3 list">
+                <img class="productsImages" [src]="'http://localhost:9090/' + product.path" alt="Product Image"
+                    (click)="navigateToDetails(product._id, product.quantity, product.total)">
+                <h4 class="titleText">{{product.title}}</h4>
+                <p class="priceText">${{product.price}}</p>
+            </div>
+        </ng-container>
+    </div>
+</div>

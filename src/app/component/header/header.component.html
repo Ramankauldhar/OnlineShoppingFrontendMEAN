@@ -1,0 +1,19 @@
+<header>
+    <div class="navbar">
+        <div class="navbar-brand align-item-center">
+            <i class="fa-solid fa-globe logo">
+                <span class="brand"> Online Shopping</span>
+            </i>
+            <div class="form-group">
+                <div class="input-group">
+                    <input type="text" class="searchBar" [(ngModel)]="searchedText" (keyup)="search($event)"
+                        placeholder="Search Products" />
+                </div>
+            </div>
+        </div>
+        <button routerLink="cart" class="btn">
+            <i class="fas fa-cart-plus cart"></i>
+            <div class="badge bg-warning badgeText">{{totalItems}}</div>
+        </button>
+    </div>
+</header>
