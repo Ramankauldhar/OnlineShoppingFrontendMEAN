@@ -1,0 +1,121 @@
+.card {
+    height: 450px;
+    margin: 5px;
+    padding: 10px;
+    background-color: beige;
+}
+
+h4 {
+    text-align: center;
+}
+
+.cartContent {
+    position: absolute;
+    top: 400px;
+    left: 50%;
+    transform: translate(-45%, -45%);
+    text-align: center;
+}
+
+.cartImage {
+    height: 100px;
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+}
+
+.shopNowButton {
+    margin-top: 20px !important;
+    margin-bottom: 20px;
+}
+
+.itemsInCardTable {
+    margin-top: 35px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: beige;
+    text-align: center;
+    min-width: none;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.trashButton {
+    margin: 0px;
+}
+
+.proImages {
+    width: 100px;
+    height: 100px;
+}
+
+.btnAtTop {
+    padding: 5px;
+    margin: 10px;
+    height: 50px;
+}
+
+.btnDiv {
+    text-align: center;
+}
+
+.left-button {
+    float: left;
+}
+
+.right-button {
+    float: right;
+}
+
+.plus {
+    background-color: green;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.minus {
+    background-color: red;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+.grandTotalText {
+    text-align: right;
+}
+
+.checkOutButton {
+    display: block;
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.align {
+    text-align: right;
+}
+
+tr:nth-of-type(2n) {
+    background: lightgrey;
+}
+
+td,
+tr {
+    width: 20%;
+}
+
+table {
+    width: 100%;
+}
+
+th,
+td {
+    text-align: left;
+    padding: 5px;
+}
+
+.productCart {
+    overflow-x: auto;
+}

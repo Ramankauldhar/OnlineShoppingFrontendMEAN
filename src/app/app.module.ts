@@ -10,6 +10,7 @@ import { FilterPipe } from './shared/filter.pipe';
 import { HeaderComponent } from './component/header/header.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { DetailsComponent } from './component/details/details.component';
+import { CartComponent } from './component/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DetailsComponent } from './component/details/details.component';
     FilterPipe,
     HeaderComponent,
     FooterComponent,
-    DetailsComponent
+    DetailsComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,68 @@
+<ng-container *ngIf="products.length !=0">
+
+    <div class="container">
+        <div class="itemsInCartTable">
+            <div class="productCart">
+                <div class="btnDiv">
+                    <button class="btn btn-danger right-button" (click)="deleteAllProductsFromCart()"><i
+                            class="fas fa-trash"></i>Empty Your Cart</button>
+                </div>
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Count</th>
+                            <th>Product</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let product of products, let i = index">
+                            <td style="width:10%">{{i+1}}</td>
+                            <td style="width:15%"><img class="proImages" [src]="'http://localhost:9090/' + product.path"
+                                    alt="Product Image"></td>
+                            <td style="width:15%">{{product.title}}</td>
+                            <td style="width:10%">${{product.price}}</td>
+                            <td style="width:15%">{{product.category}}</td>
+                            <td style="width:10%">
+                                <button class="plus" (click)="increaseQuantity(product)">+</button>
+                                {{ product.quantity }}
+                                <button class="minus" (click)="decreaseQuantity(product)">-</button>
+                            </td>
+                            <td style="width:10%">${{(product.total) * (product.quantity)}}</td>
+                            <td>
+                                <button class="btn btn-danger trashButton"
+                                    (click)="deleteProductFromSelection(product)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="align">
+            <strong class="grandTotalText">Grand Total: CND $ {{grandTotal}}</strong><br>
+            <button class="btn btn-warning left-button" routerLink="/home">Shop More</button>
+            <button class="btn btn-success checkOutButton" (click)="checkOutFuntion()">Check Out</button>
+        </div>
+    </div>
+</ng-container>
+
+<ng-container *ngIf="products.length == 0">
+    <div class="container">
+        <div class="card">
+            <h4 class="title">Your Cart</h4>
+        </div>
+        <div class="cartContent">
+            <img class="cartImage" src="../../../assets/shopping_cart.png" alt="">
+            <h5>Your card is empty!</h5>
+            <p>Add items to it to get the best deal ever</p>
+            <button class="btn btn-success shopNowButton" routerLink="/home">Shop Now</button>
+        </div>
+    </div>
+</ng-container>
