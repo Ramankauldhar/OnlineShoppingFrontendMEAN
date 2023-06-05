@@ -1,0 +1,55 @@
+.detailsContainer {
+    display: flex;
+    flex-direction: column;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.leftDiv {
+    float: left;
+    min-width: 50%;
+    padding: 10px;
+}
+
+.rightDiv {
+    float: right;
+    min-width: 50%;
+    padding: 10px;
+}
+
+.detailsContainer::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+p {
+    background-color: cadetblue;
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    padding: 5px;
+    margin: 5px;
+}
+
+button {
+    margin: 5px;
+}
+
+@media screen and (max-width:800px) {
+    .detailsContainer {
+        display: block;
+    }
+    .leftDiv{
+        width:100%;
+    }
+    .rightDiv{
+        width:100%;
+    }
+}
