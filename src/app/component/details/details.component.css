@@ -1,0 +1,179 @@
+h2 {
+    background-color: cadetblue;
+    text-align: center;
+    padding: 20px;
+    margin: 20px;
+}
+
+h3 {
+    text-align: center;
+    margin: 20px;
+}
+
+.productInfoDiv {
+    width: 100%;
+    height: auto;
+}
+
+.relatedProductsDiv {
+    width: 100%;
+    height: auto;
+}
+
+.proContainer {
+    display: flex;
+    background-color: rgb(231, 231, 144);
+    margin: 20px;
+}
+
+.imageDiv {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.imageInfo {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-top: 20px;
+    height: 600px;
+    padding-top: 10px;
+}
+
+.row {
+    margin: 5px;
+    float: right;
+}
+
+.list {
+    margin: 10px;
+}
+
+.productsImages {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px;
+    height: 600px;
+    transition: 0.2s ease-in-out;
+    border: 1px solid black;
+}
+
+button {
+    margin-bottom: 10px;
+}
+
+.card {
+    padding: 20px;
+    width: 350px;
+    margin: 10px;
+}
+
+p {
+    font-size: 20px;
+}
+
+.btn-danger {
+    margin-left: 20px;
+}
+
+.bullet-list {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.bullet-list li:before {
+    content: "\2022";
+    /* Unicode character for bullet point */
+    margin-right: 5px;
+}
+
+.related-product {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.relatedImages {
+    height: 300px;
+    width: 300px;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 2px;
+}
+
+.deliveryInfoDiv {
+    border-radius: 2px;
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 60px;
+    width: auto;
+    background-color: white;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1380px) {
+    .proContainer {
+        display: block;
+    }
+
+    .productsImages {
+        height: 600px;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .proContainer {
+        display: block;
+    }
+
+    .productsImages {
+        height: 600px;
+        width: 400px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .productsImages {
+        height: 400px;
+        width: 300px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .productsImages {
+        height: 350px;
+        width: 250px;
+    }
+
+    .relatedImages {
+        height: 350px;
+        width: 250px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .productsImages {
+        height: 350px;
+        width: 200px;
+    }
+
+    .relatedImages {
+        height: 350px;
+        width: 200px;
+    }
+
+    .imageInfo,
+    p {
+        font-size: 10px;
+    }
+
+    button {
+        display: block;
+    }
+}

@@ -1,0 +1,33 @@
+<div class="productInfoDiv">
+    <h2>Product Details</h2>
+    <div class="proContainer">
+        <div class="imageDiv">
+            <img class="productsImages" [src]="'http://localhost:9090/' + product.path" alt="Product Image">
+        </div>
+        <div class="imageInfo">
+            <h4>{{ product.title }}</h4>
+            <ul class="bullet-list">
+                <ng-container *ngFor="let line of product.description.split('\n')">
+                    <li *ngIf="line.trim() !== ''">{{ line }}</li>
+                </ng-container>
+            </ul>
+            <p><B>Price:</B> ${{ product.price }}</p>
+            <p>Category: {{ product.category }}</p>
+            <p class="deliveryInfoDiv">Expected Delivery: {{ deliveryDate }}</p>
+            <button class="btn btn-success" (click)="addToCart(product)">Add to cart</button>
+            <button class="btn btn-danger" routerLink="/home">Cancel</button>
+        </div>
+    </div>
+</div>
+
+<div class="relatedProductsDiv">
+    <h3>Related Products</h3>
+    <div class="related-product">
+        <div *ngFor="let item of relatedProducts">
+            <img class="relatedImages" [src]="'http://localhost:9090/' + item.path" alt="Product Image"
+                (click)="details(item._id)">
+            <p>{{item.title}}</p>
+            <p>Price: ${{item.price}}</p>
+        </div>
+    </div>
+</div>
