@@ -29,11 +29,11 @@
                             <td style="width:10%">${{product.price}}</td>
                             <td style="width:15%">{{product.category}}</td>
                             <td style="width:10%">
-                                <button class="plus" (click)="increaseQuantity(product)">+</button>
+                                <button class="plus" (click)="increaseQuantity(product); updateSubtotal(product)">+</button>
                                 {{ product.quantity }}
-                                <button class="minus" (click)="decreaseQuantity(product)">-</button>
+                                <button class="minus" (click)="decreaseQuantity(product); updateSubtotal(product)">-</button>
                             </td>
-                            <td style="width:10%">${{(product.total) * (product.quantity)}}</td>
+                            <td style="width:10%">${{(product.total)}}</td>
                             <td>
                                 <button class="btn btn-danger trashButton"
                                     (click)="deleteProductFromSelection(product)">
@@ -46,9 +46,9 @@
             </div>
         </div>
         <div class="align">
-            <strong class="grandTotalText">Grand Total: CND $ {{grandTotal}}</strong><br>
+            <strong class="grandTotalText">Sub Total: CND $ {{grandTotal}}</strong><br>
             <button class="btn btn-warning left-button" routerLink="/home">Shop More</button>
-            <button class="btn btn-success checkOutButton" (click)="checkOutFuntion()">Check Out</button>
+            <button class="btn btn-success checkOutButton" (click)="checkOutFunction()">Check Out</button>
         </div>
     </div>
 </ng-container>

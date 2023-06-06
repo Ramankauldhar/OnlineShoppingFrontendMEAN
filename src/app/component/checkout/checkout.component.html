@@ -164,11 +164,11 @@
                 </div>
                 <p>Order Summary</p>
                 <hr>
-                <span><b>Sub Total:</b> ${{100}}</span><br>
+                <span><b>Sub Total:</b> ${{grandTotal}}</span><br>
                 <span><b>Delivery Charges:</b> ${{4.5}}</span><br>
                 <span><b>GST:</b> ${{2.03}}</span><br>
                 <hr>
-                <span>Total: ${{106.00}}</span><br>
+                <span>Total: ${{grandTotal+6.53}}</span><br>
                 <div class="buttons">
                     <button class="btn btn-warning" routerLink="/home">Shop More</button>
                     <button class="btn btn-success">Place Order</button>
@@ -176,5 +176,6 @@
 
             </div>
         </form>
+        
     </div>
 </div>

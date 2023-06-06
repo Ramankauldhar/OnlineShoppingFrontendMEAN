@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { ProductServiceService } from 'src/app/service/product-service.service';
 
 @Component({
   selector: 'app-checkout',
@@ -11,10 +13,21 @@ export class CheckoutComponent implements OnInit {
   checkOutForm!: FormGroup;
   submitted = false;
 
-  constructor(private route:ActivatedRoute, private formBuilder: FormBuilder)
+  products: any = [];
+  public grandTotal:number = 0;
+    
+  constructor(private route:ActivatedRoute, private formBuilder: FormBuilder, private http: HttpClient, private productService:ProductServiceService)
     {}
 
     ngOnInit(){
+       this.route.queryParams.subscribe(params => {
+         if (params['data']) {
+           const queryParams = JSON.parse(params['data']); 
+           this.products = queryParams.products;
+           this.grandTotal = queryParams.grandTotal;
+           console.log(this.products);
+          }
+       });
       this.checkOutForm = this.formBuilder.group(
         {
           name1:['', Validators.required],
@@ -49,7 +62,23 @@ export class CheckoutComponent implements OnInit {
   finalCheckOut() {
     this.submitted = true;
     if(this.checkOutForm.invalid){
-      return
+      return;
     }
-  }
+   
+     let productsInfo = '';
+  this.products.forEach((product: any) => {
+    productsInfo += 'Title: ' + product.title + ', Price: ' + product.price + '\n';
+  });
+
+  const payload = {
+    Name: this.checkOutForm.value.name1,
+    Email: this.checkOutForm.value.email,
+    Address: [this.checkOutForm.value.address,this.checkOutForm.value.city,this.checkOutForm.value.province,this.checkOutForm.value.code],
+    Contact: this.checkOutForm.value.contact,
+    Order: productsInfo
+  };
+
+  alert("Order Confirmed!\n" + JSON.stringify(payload));
+}
+
 }

@@ -13,6 +13,7 @@ products:any = [];
 productList : any;
 public grandTotal:number = 0;
 public quantity: number = 1;
+
  constructor(private cartService: CartServiceService, private route: ActivatedRoute, private router:Router, private fetchDataService: FetchDataServiceService){}
 
  ngOnInit(): void {
@@ -37,7 +38,7 @@ public quantity: number = 1;
  }
 
 increaseQuantity(product: any) {
-  product.quantity = product.quantity + 1;
+  product.quantity = product.quantity + 1; 
 }
 
 decreaseQuantity(product: any) {
@@ -45,9 +46,20 @@ decreaseQuantity(product: any) {
     product.quantity = product.quantity - 1;
   }
 }
-
-checkOutFuntion(){
-  this.router.navigate(['/checkout']);
+updateSubtotal(product: any) {
+  product.total = product.price * product.quantity;
+  this.calculateGrandTotal();
 }
+calculateGrandTotal() {
+  this.grandTotal = this.products.reduce((total:any, product:any) => total + (product.total || 0), 0);
+}
+
+ checkOutFunction() {
+    const queryParams = {
+      products: this.products,
+      grandTotal: this.grandTotal
+    };
+    this.router.navigate(['/checkout'], { queryParams: { data: JSON.stringify(queryParams) } });
+  }
 
 }
