@@ -12,9 +12,11 @@ import { ProductServiceService } from 'src/app/service/product-service.service';
 export class CheckoutComponent implements OnInit {
   checkOutForm!: FormGroup;
   submitted = false;
+  total: number=0;
 
   products: any = [];
   public grandTotal:number = 0;
+
     
   constructor(private route:ActivatedRoute, private formBuilder: FormBuilder, private http: HttpClient, private productService:ProductServiceService, private router: Router)
     {}
@@ -25,6 +27,7 @@ export class CheckoutComponent implements OnInit {
            const queryParams = JSON.parse(params['data']); 
            this.products = queryParams.products;
            this.grandTotal = queryParams.grandTotal;
+
            console.log(this.products);
           }
        });
@@ -76,6 +79,7 @@ export class CheckoutComponent implements OnInit {
     Address: [this.checkOutForm.value.address,this.checkOutForm.value.city,this.checkOutForm.value.province,this.checkOutForm.value.code],
     Contact: this.checkOutForm.value.contact,
     Order: productsInfo,
+    Total:this.grandTotal+6.53,
     products:this.products
   };
 

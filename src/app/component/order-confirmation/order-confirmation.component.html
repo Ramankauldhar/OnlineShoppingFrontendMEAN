@@ -8,6 +8,7 @@
         Address:{{Address}}<br>
         Contact:{{Contact}}<br>
         Expected Delivery: {{ deliveryDate }}
+        
         <hr>
         <h3 style="text-align: center;">Your Order</h3>
         <ng-container *ngFor="let product of products">
@@ -15,10 +16,12 @@
                 <img class="productsImages" [src]="'https://onlineshopping-7goc.onrender.com/' + product.path"
                     alt="Product Image">
                 <h4 class="titleText">{{product.title}}</h4>
-                <p class="priceText">${{product.price}}</p>
+                <p class="priceText">${{product.total}}</p>
+                <p>Quantity: {{product.quantity}}</p>
             </div>
         </ng-container>
-
-        
+        <hr>
+        <p style="background-color: rgb(216, 193, 163);text-align:center; color:rgb(255, 0, 34); padding:10px; font-size: 25px;">Final Total:(incl. Tax) {{total}}</p>
+        <hr>
     </div>
 </div>

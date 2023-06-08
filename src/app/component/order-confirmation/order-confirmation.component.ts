@@ -15,6 +15,7 @@ export class OrderConfirmationComponent implements OnInit{
   Address!: string;
   Contact!: string;
   deliveryDate!: string;
+  total!:number;
 
   ngOnInit(){
      this.route.queryParams.subscribe(params => {
@@ -24,8 +25,9 @@ export class OrderConfirmationComponent implements OnInit{
            this.Email = queryParams.Email;
            this.Address = queryParams.Address;
            this.Contact = queryParams.Contact;
+           this.total = queryParams.Total;
            this.products = queryParams.products;
-          
+
            console.log(this.products);
           }
        });
