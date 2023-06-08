@@ -16,7 +16,7 @@ export class ProductServiceService {
   }
 
   getProductById(productId: string) {
-    return this.http.get(`http://localhost:9090/api/products/${productId}`).pipe(
+    return this.http.get(`https://onlineshopping-7goc.onrender.com/api/products/${productId}`).pipe(
       map((res: any) => {
         return res;
       })

@@ -4,7 +4,6 @@
     flex-direction: column;
     min-width: 0;
     width: 100%;
-    word-wrap: break-word;
     background-color: rgb(146, 163, 194);
     background-clip: border-box;
     padding: 10px;

@@ -2,7 +2,7 @@
     <h2>Product Details</h2>
     <div class="proContainer">
         <div class="imageDiv">
-            <img class="productsImages" [src]="'http://localhost:9090/' + product.path" alt="Product Image">
+            <img class="productsImages" [src]="'https://onlineshopping-7goc.onrender.com/' + product.path" alt="Product Image">
         </div>
         <div class="imageInfo">
             <h4>{{ product.title }}</h4>
@@ -24,7 +24,7 @@
     <h3>Related Products</h3>
     <div class="related-product">
         <div *ngFor="let item of relatedProducts">
-            <img class="relatedImages" [src]="'http://localhost:9090/' + item.path" alt="Product Image"
+            <img class="relatedImages" [src]="'https://onlineshopping-7goc.onrender.com/' + item.path" alt="Product Image"
                 (click)="details(item._id)">
             <p>{{item.title}}</p>
             <p>Price: ${{item.price}}</p>

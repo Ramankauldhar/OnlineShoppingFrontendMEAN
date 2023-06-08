@@ -28,7 +28,7 @@
         <h2>All Products</h2>
         <ng-container *ngFor="let product of filterCategory | filter:searchKey:'title'">
             <div class="card col-md-3 list">
-                <img class="productsImages" [src]="'http://localhost:9090/' + product.path" alt="Product Image"
+                <img class="productsImages" [src]="'https://onlineshopping-7goc.onrender.com/' + product.path" alt="Product Image"
                     (click)="navigateToDetails(product._id, product.quantity, product.total)">
                 <h4 class="titleText">{{product.title}}</h4>
                 <p class="priceText">${{product.price}}</p>

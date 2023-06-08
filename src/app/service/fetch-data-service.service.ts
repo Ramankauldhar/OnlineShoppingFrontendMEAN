@@ -10,7 +10,7 @@ export class FetchDataServiceService {
  constructor( private http: HttpClient) { }
 
   getProductList(){
-    return this.http.get("http://localhost:9090/api/getProducts").pipe(map((res:any)=>{
+    return this.http.get("https://onlineshopping-7goc.onrender.com/api/getProducts").pipe(map((res:any)=>{
         return res;
     }))
   }

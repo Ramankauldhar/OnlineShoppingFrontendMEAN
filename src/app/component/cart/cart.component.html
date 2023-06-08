@@ -23,7 +23,7 @@
                     <tbody>
                         <tr *ngFor="let product of products, let i = index">
                             <td style="width:10%">{{i+1}}</td>
-                            <td style="width:15%"><img class="proImages" [src]="'http://localhost:9090/' + product.path"
+                            <td style="width:15%"><img class="proImages" [src]="'https://onlineshopping-7goc.onrender.com/' + product.path"
                                     alt="Product Image"></td>
                             <td style="width:15%">{{product.title}}</td>
                             <td style="width:10%">${{product.price}}</td>
