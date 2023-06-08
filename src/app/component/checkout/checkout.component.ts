@@ -16,7 +16,7 @@ export class CheckoutComponent implements OnInit {
   products: any = [];
   public grandTotal:number = 0;
     
-  constructor(private route:ActivatedRoute, private formBuilder: FormBuilder, private http: HttpClient, private productService:ProductServiceService)
+  constructor(private route:ActivatedRoute, private formBuilder: FormBuilder, private http: HttpClient, private productService:ProductServiceService, private router: Router)
     {}
 
     ngOnInit(){
@@ -65,7 +65,7 @@ export class CheckoutComponent implements OnInit {
       return;
     }
    
-     let productsInfo = '';
+  let productsInfo = '';
   this.products.forEach((product: any) => {
     productsInfo += 'Title: ' + product.title + ', Price: ' + product.price + '\n';
   });
@@ -75,10 +75,11 @@ export class CheckoutComponent implements OnInit {
     Email: this.checkOutForm.value.email,
     Address: [this.checkOutForm.value.address,this.checkOutForm.value.city,this.checkOutForm.value.province,this.checkOutForm.value.code],
     Contact: this.checkOutForm.value.contact,
-    Order: productsInfo
+    Order: productsInfo,
+    products:this.products
   };
 
-  alert("Order Confirmed!\n" + JSON.stringify(payload));
+ this.router.navigate(['/OdrConfirm'], { queryParams: { data: JSON.stringify(payload) } });
 }
 
 }

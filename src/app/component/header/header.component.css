@@ -3,6 +3,11 @@
     background-color: rgb(207, 46, 78);
     width: 100%;
 }
+.a{
+    text-decoration: none;
+    color: darkgray;
+    font-size: 40px;
+}
 
 .navbar-brand {
     display: flex;

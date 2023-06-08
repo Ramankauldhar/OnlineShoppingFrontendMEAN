@@ -29,12 +29,10 @@ export class DetailsComponent implements OnInit {
     this.getRelatedProducts();
 
     const today = new Date();
-  
        // Calculate the date three days ahead
     const deliveryDate = new Date(today.getTime() + (3 * 24 * 60 * 60 * 1000));
        // Format the date as desired (e.g., "dd/mm/yyyy")
     const formattedDate = deliveryDate.getDate() + '/' + (deliveryDate.getMonth() + 1) + '/' + deliveryDate.getFullYear();
-  
        // Assign the formatted date to the variable
     this.deliveryDate = formattedDate;
 

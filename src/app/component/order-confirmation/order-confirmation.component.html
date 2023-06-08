@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row" style="justify-content: center;">
+        <h2 style="text-align: center;">Thank You for Shopping with Us!</h2>
+        <p style="text-align: center;">Your Order Is confirmed!</p>
+        <hr>
+        Name:{{Name}}<br>
+        Email:{{Email}}<br>
+        Address:{{Address}}<br>
+        Contact:{{Contact}}<br>
+        Expected Delivery: {{ deliveryDate }}
+        <hr>
+        <h3 style="text-align: center;">Your Order</h3>
+        <ng-container *ngFor="let product of products">
+            <div class="card col-md-3 list">
+                <img class="productsImages" [src]="'https://onlineshopping-7goc.onrender.com/' + product.path"
+                    alt="Product Image">
+                <h4 class="titleText">{{product.title}}</h4>
+                <p class="priceText">${{product.price}}</p>
+            </div>
+        </ng-container>
+
+        
+    </div>
+</div>

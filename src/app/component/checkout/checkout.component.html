@@ -6,7 +6,7 @@
                 <div class="form-group">
                     <label>Name:</label>
                     <input class="form-control" type="text" placeholder="Enter name" formControlName="name1"
-                        [ngClass]="{'is-invalid': submitted && checkOutForm.controls['name1'].errors}" pattern="^[a-zA-Z]+$">
+                        [ngClass]="{'is-invalid': submitted && checkOutForm.controls['name1'].errors}" pattern="^[a-zA-Z\s]+$">
                     <div *ngIf="submitted && checkOutForm.controls['name1'].errors" class="text-danger">
                         <div *ngIf="submitted && checkOutForm.controls['name1'].errors['required']">
                             Name is required
@@ -86,7 +86,7 @@
                 </div>
                 <div class="form-group">
                     <label for="inputZip">Postal Code: (X1X1X1)</label>
-                    <input type="text" class="form-control" id="inputZip" placeholder="X1X1X1" required pattern="[A-Za-z]{2}\d{2}[A-Za-z]{2}" 
+                    <input type="text" class="form-control" id="inputZip" placeholder="X1X1X1" required pattern="[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d" 
                         formControlName="code" [ngClass]="{'is-invalid': submitted && checkOutForm.controls['code'].errors}">
                         <div *ngIf="submitted && checkOutForm.controls['code'].errors" class="text-danger">
                             <div *ngIf="submitted && checkOutForm.controls['code'].errors['required']">
@@ -107,7 +107,7 @@
             <div class="form-group">
                 <label>Name on card:</label>
                 <input class="form-control" type="text" placeholder="Enter name" formControlName="name"
-                    [ngClass]="{'is-invalid': submitted && checkOutForm.controls['name'].errors}" pattern="^[a-zA-Z]+$">
+                    [ngClass]="{'is-invalid': submitted && checkOutForm.controls['name'].errors}" pattern="^[a-zA-Z\s]+$">
                 <div *ngIf="submitted && checkOutForm.controls['name'].errors" class="text-danger">
                     <div *ngIf="submitted && checkOutForm.controls['name'].errors['required']">
                         Name is required
