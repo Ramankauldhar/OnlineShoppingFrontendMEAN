@@ -3,9 +3,10 @@
     background-color: rgb(207, 46, 78);
     width: 100%;
 }
-.a{
+
+.a {
     text-decoration: none;
-    color: darkgray;
+    color: white;
     font-size: 40px;
 }
 
@@ -15,12 +16,12 @@
 }
 
 .logo {
-    color: darkgray;
+    color: white;
     font-size: 40px;
 }
 
 .brand {
-    color: darkgray;
+    color: white;
     font-size: 40px;
     font-family: Arial, Helvetica, sans-serif;
 }
