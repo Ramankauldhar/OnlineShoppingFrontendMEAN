@@ -16,12 +16,15 @@ export class HomeComponent implements OnInit {
   filterCategory: any;
   products: any[] = [];
 
+  isLoading: boolean = true; // Initially set to true to display the loading indicator
+
   constructor(private fetchProductsApiService: FetchDataServiceService, private cartApiService: CartServiceService, private productService: ProductServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.fetchProductsApiService.getProductList().subscribe(res => {
       this.productList = res;
       this.filterCategory = res;
+      this.isLoading = false;
       this.productList.forEach((i: any) => {
         if (i.category === "Women Wear" || i.category === "Sweater") {
           i.category = "Cloths"
@@ -35,7 +38,8 @@ export class HomeComponent implements OnInit {
     });
     this.cartApiService.search.subscribe((val: any) => {
       this.searchKey = val;
-    })
+    });
+
   }
 
   filter(category: string) {
