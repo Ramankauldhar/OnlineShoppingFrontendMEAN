@@ -75,6 +75,10 @@
 }
 
 @media screen and (max-width:500px) and (min-width:250px) {
+    .a {
+        font-size: 35px;
+    }
+
     .searchBar {
         width: 200px;
         margin-left: auto;

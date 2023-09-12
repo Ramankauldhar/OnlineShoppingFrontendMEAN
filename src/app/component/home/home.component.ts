@@ -11,46 +11,49 @@ import { ProductServiceService } from '../../service/product-service.service';
 })
 export class HomeComponent implements OnInit {
 
-  productList : any;
-  searchKey:string = "";
-  filterCategory:any;
+  productList: any;
+  searchKey: string = "";
+  filterCategory: any;
   products: any[] = [];
 
-  constructor(private fetchProductsApiService: FetchDataServiceService, private cartApiService:CartServiceService, private productService: ProductServiceService, private router: Router ){}
+  constructor(private fetchProductsApiService: FetchDataServiceService, private cartApiService: CartServiceService, private productService: ProductServiceService, private router: Router) { }
 
-  ngOnInit() : void{
-    this.fetchProductsApiService.getProductList().subscribe(res=>{
+  ngOnInit(): void {
+    this.fetchProductsApiService.getProductList().subscribe(res => {
       this.productList = res;
       this.filterCategory = res;
-      this.productList.forEach((i:any) =>{
-        if(i.category === "Women Wear" || i.category === "Sweater"){
+      this.productList.forEach((i: any) => {
+        if (i.category === "Women Wear" || i.category === "Sweater") {
           i.category = "Cloths"
         }
-        if(i.category === "Foot wear" || i.category === "Foot Wear"){
+        if (i.category === "Foot wear" || i.category === "Foot Wear") {
           i.category = "Foot wear"
         }
-        Object.assign(i,{quantity:1, total:i.price})
+        Object.assign(i, { quantity: 1, total: i.price })
       });
       console.log(this.productList);
     });
-    this.cartApiService.search.subscribe((val:any) =>{
+    this.cartApiService.search.subscribe((val: any) => {
       this.searchKey = val;
     })
   }
 
-  filter(category:string){
-    this.filterCategory = this.productList.filter((a:any) =>{
-      if(a.category == category || category==''){
+  filter(category: string) {
+    this.filterCategory = this.productList.filter((a: any) => {
+      if (a.category == category || category == '') {
         return a;
+      }
+      else {
+        return "No data Found!";
       }
     });
   }
 
-navigateToDetails(productId: string, quantity: number, total: number) {
-  this.productService.getProductById(productId).subscribe((product: any) => {
-    this.productService.setProductData({ product, quantity, total });
-    this.router.navigate(['/details', productId]);
-  });
-}
+  navigateToDetails(productId: string, quantity: number, total: number) {
+    this.productService.getProductById(productId).subscribe((product: any) => {
+      this.productService.setProductData({ product, quantity, total });
+      this.router.navigate(['/details', productId]);
+    });
+  }
 }
 
