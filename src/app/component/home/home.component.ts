@@ -47,9 +47,6 @@ export class HomeComponent implements OnInit {
       if (a.category == category || category == '') {
         return a;
       }
-      else {
-        return "No data Found!";
-      }
     });
   }
 

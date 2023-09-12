@@ -30,12 +30,14 @@
             <button class="buttonload"><i class="fa fa-spinner fa-spin"></i>Loading...</button>
         </div>
         <ng-container *ngIf="!isLoading">
-            <div class="card list" *ngFor="let product of filterCategory | filter:searchKey:'title'">
-                <img class="productsImages" [src]="'https://onlineshopping-7goc.onrender.com/' + product.path"
-                    alt="Product Image" (click)="navigateToDetails(product._id, product.quantity, product.total)">
-                <h4 class="titleText">{{product.title}}</h4>
-                <p class="priceText">${{product.price}}</p>
-            </div>
+            <ng-container *ngFor="let product of filterCategory | filter:searchKey:'title'">
+                <div class="card list">
+                    <img class="productsImages" [src]="'https://onlineshopping-7goc.onrender.com/' + product.path"
+                        alt="Product Image" (click)="navigateToDetails(product._id, product.quantity, product.total)">
+                    <h4 class="titleText">{{product.title}}</h4>
+                    <p class="priceText">${{product.price}}</p>
+                </div>
+            </ng-container>
         </ng-container>
     </div>
 </div>
